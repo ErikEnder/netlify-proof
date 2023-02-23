@@ -1,40 +1,38 @@
 backend:
-  name: git-gateway
+  name: test-repo # git-gateway for proxy server
   branch: main # Branch to update (optional; defaults to master)
 local_backend: true
 media_folder: public/img
 public_folder: img
+publish_mode: editorial_workflow
 collections:
   - name: "strategies"
     label: "strategies"
+    folder: _strategies
     create: true
-    files:
-    - label: "Home"
-      name: "home"
-      file: "content/home.md"
-      fields:
-        - { label: "Title", name: "title", widget: "string"}
+    fields:
+      - { label: "Title", name: "title", widget: "string"}
+
+      - label: 'Endorsement'
+        name: "endorsement"
+        widget: "select"
+        options: ["endorsed", "not endorsed"]
+        default: ["endorsed"]
         
-        - label: 'Endorsement'
-          name: "endorsement"
-          widget: "select"
-          options: ["endorsed", "not endorsed"]
-          default: ["endorsed"]
-          
-        - { label: "Publisher", name: "publisher", widget: "string" }
+      - { label: "Publisher", name: "publisher", widget: "string" }
 
-        - label: 'Authors'
-          name: "authors"
-          widget: list
-          field: { label: "Author", name: "author", widget: "string"}
+      - label: 'Authors'
+        name: "authors"
+        widget: list
+        field: { label: "Author", name: "author", widget: "string"}
 
-        - { label: "Publish Date", name: "date", widget: "datetime", format: YYYY.MM.DD }
-        
-        - { label: "Version", name: "version", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: YYYY.MM.DD }
+      
+      - { label: "Version", name: "version", widget: "string" }
 
-        - { label: "Description", name: "description", widget: "markdown"}
+      - { label: "Description", name: "description", widget: "markdown"}
 
-        - label: 'Citations'
-          name: "citations"
-          widget: list
-          field: { label: "Citation", name: "Citation", widget: "string"}
+      - label: 'Citations'
+        name: "citations"
+        widget: list
+        field: { label: "Citation", name: "Citation", widget: "string"}
