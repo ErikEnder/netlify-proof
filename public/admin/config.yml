@@ -11,28 +11,30 @@ collections:
     folder: _strategies
     create: true
     fields:
+      - { label: "Version", name: "version", widget: "string" }
+      - { label: "Name", name: "name", widget: "string"}
       - { label: "Title", name: "title", widget: "string"}
-
-      - label: 'Endorsement'
-        name: "endorsement"
-        widget: "select"
-        options: ["endorsed", "not endorsed"]
-        default: ["endorsed"]
-        
+      - { label: "Description", name: "description", widget: "markdown"}
+      - label: 'Use Context'
+        name: "useContext"
+        widget: list
+        summary: '{{fields.type}} - {{fields.status}}'
+        fields: 
+          - { label: "Type", name: "type", widget: "string"}
+          - { label: "Status", name: "status", widget: "string"}
       - { label: "Publisher", name: "publisher", widget: "string" }
 
-      - label: 'Authors'
-        name: "authors"
-        widget: list
-        field: { label: "Author", name: "author", widget: "string"}
-
-      - { label: "Publish Date", name: "date", widget: "datetime", format: YYYY.MM.DD }
-      
-      - { label: "Version", name: "version", widget: "string" }
-
-      - { label: "Description", name: "description", widget: "markdown"}
-
-      - label: 'Citations'
-        name: "citations"
-        widget: list
-        field: { label: "Citation", name: "Citation", widget: "string"}
+      # - label: 'Endorsement'
+      #   name: "endorsement"
+      #   widget: "select"
+      #   options: ["endorsed", "not endorsed"]
+      #   default: ["endorsed"]
+      # - label: 'Authors'
+      #   name: "authors"
+      #   widget: list
+      #   field: { label: "Author", name: "author", widget: "string"}
+      # - { label: "Publish Date", name: "date", widget: "datetime", format: YYYY.MM.DD }
+      # - label: 'Citations'
+      #   name: "citations"
+      #   widget: list
+      #   field: { label: "Citation", name: "Citation", widget: "string"}
