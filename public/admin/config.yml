@@ -5,24 +5,34 @@ local_backend: true
 media_folder: public/img
 public_folder: img
 publish_mode: editorial_workflow
-collections:
-  - name: "strategies"
-    label: "strategies"
-    folder: _strategies
-    create: true
-    fields:
-      - { label: "Version", name: "version", widget: "string" }
-      - { label: "Name", name: "name", widget: "string"}
-      - { label: "Title", name: "title", widget: "string"}
-      - { label: "Description", name: "description", widget: "markdown"}
-      - label: 'Use Context'
-        name: "useContext"
-        widget: list
-        summary: '{{fields.type}} - {{fields.status}}'
-        fields: 
-          - { label: "Type", name: "type", widget: "string"}
-          - { label: "Status", name: "status", widget: "string"}
-      - { label: "Publisher", name: "publisher", widget: "string" }
+collections: # A list of collections the CMS should be able to edit  - 
+- name: "strategies"
+  label: "Strategies" 
+  folder: _strategies
+  create: true
+  fields: # The fields each document in this collection have
+    - { label: "Name", name: "name",widget: "string"}
+    - { label: "Version", name: "version", widget: "string"}
+    - { label: "Title", name: "title", widget: "string"}
+    - { label: "Description", name: "description", widget: "markdown" }
+    - { label: "useContext", name: "useContext", widget: "string"}
+    - label: 'Type' 
+      name: "type" 
+      widget: "list" 
+      fields: 
+        - { label: "Order Set", name: "order-set", widget: "string"}
+        - { label: "Clinical Protocol", name: "clinical-protocol", widget: "string"}
+        - { label: "ECA Rule", name: "eca-rule", widget: "string"}
+        - { label: "Workflow Definition", name: "workflow-definition", widget: "string"}
+    - label: 'Status'
+      name: "status" 
+      widget: "list" 
+      fields:
+        - { label: "Draft", name: "draft", widget: "string"}
+        - { label: "Active", name: "active", widget: "string"}
+        - { label: "Retired", name: "retired", widget: "string"}
+        - { label: "Unknown", name: "unknown", widget: "string"}
+    - { label: "Publisher", name: "publisher", widget: "string"}
 
       # - label: 'Endorsement'
       #   name: "endorsement"
